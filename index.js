@@ -8,17 +8,9 @@ const stripe = require("stripe")(
   "sk_test_51OGy2xSCMQu8LsRZK4hmg1Cz3YCIWSCOG38mzizqGYTj52sWM0uVJwPfLlgijfVinWCq9nM0xdDdlggnzzZEBuxk00AHP9sj5T"
 );
 
-const corsOptions = {
-  origin: [
-    "*"
-  ],
-  optionsSuccessStatus: 200, // Some legacy browsers choke on 204
-  credentials: true // Allow credentials
-};
 
 const app = express();
-app.use(cors(corsOptions));
-app.options("*", cors(corsOptions)); // Handle preflight requests
+app.use(cors());
 app.use(express.json());
 
 try {
